@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Alletanio</string>
+    <string name="action_settings">Aktualizuj Token  Uwierzytelniający</string>
+    <string name="TextView_Banner">ALLETANIO!</string>
+    <string name="EditText_Product">Podaj nazwę produktu</string>
+    <string name="Button_Search">Wyszukaj</string>
+
+    <string name="title_activity_search_result">Wynik wyszukiwania</string>
+    <string name="TextView_Product_Name">Tutaj nazwa produktu</string>
+
+    <string name="TextView_Lowest_Price">Najniższa cena:</string>
+    <string name="TextView_Average_Price">Srednia cena:</string>
+    <string name="TextView_Highest_Price">Najwyższa cena:</string>
+    <string name="TextView_Median_Price">Mediana cen:</string>
+    <string name="TextView_Price_Range">Rozkład cen</string>
+
+    <string name="TextView_Offers">Oferty</string>
+    <string name="TextView_Offers_Promoted">Promowane:</string>
+    <string name="TextView_Offers_Regular">Niepromowane:</string>
+    <string name="TextView_Offers_Buy_Now">Z opcją \"Kup teraz\":</string>
+    <string name="TextView_Offers_Auction">Aukcje:</string>
+
+    <string name="TextView_Products">Ilość przemiotów w aukcji</string>
+    <string name="TextView_Products_Average">Średnia:</string>
+    <string name="TextView_Products_Maximum">Największa:</string>
+
+    <string name="TextView_Sellers">Sprzedawcy</string>
+    <string name="TextView_Sellers_Shop">Sklepy:</string>
+    <string name="TextView_Sellers_Person">Prywatni:</string>
+
+    <string name="TextView_Delivery">Dostawa</string>
+    <string name="TextView_Delivery_Free">Darmowa:</string>
+    <string name="TextView_Delivery_Paid">Płatna:</string>
+
+    <string name="TextView_Offers_Count">Dane przeanalizowano dla</string>
+
+    <string-array name="categories">
+        <item value="111">Wszystkie kategorie</item>
+        <item value="222">Dom i ogród</item>
+        <item value="333">Dziecko</item>
+        <item value="444">Elektronika</item>
+        <item value="555">Firma</item>
+        <item value="666">Kolekcje i sztuka</item>
+        <item value="777">Kultura i rozrywka</item>
+        <item value="888">Moda</item>
+        <item value="999">Motoryzacja</item>
+        <item value="101010">Ogłoszenia i usługi</item>
+        <item value="111111">Sport i turystyka</item>
+        <item value="121212">Supermarket</item>
+        <item value="131313">Uroda</item>
+        <item value="141414">Zdrowie</item>
+    </string-array>
+</resources>

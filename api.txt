@@ -1,0 +1,93 @@
+package com.example.allegrozadziala;
+ 
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Base64;
+import android.util.JsonReader;
+import android.util.Log;
+ 
+import androidx.appcompat.app.AppCompatActivity;
+ 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+ 
+import javax.net.ssl.HttpsURLConnection;
+ 
+ 
+ 
+public class MainActivity extends AppCompatActivity {
+ 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+ 
+        absd();
+    }
+    private void absd()
+    {
+ 
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+ 
+                try {
+ 
+                    String authUrl = "https://allegro.pl/auth/oauth/token?grant_type=client_credentials";
+                String clientId= "f3dd50c4a80d48028f3237d1db5d6f50";
+                String clientSecret= "WmCTqs7LK0X892BbXn0bYUjOpVyBssLlkGK4208Wq3krTem8CImZgZFsTnmpM4mk";
+                URL allegroEndpoint = new URL(authUrl);
+                HttpsURLConnection myConnection = (HttpsURLConnection) allegroEndpoint.openConnection();
+                String userCredentials = clientId+":"+clientSecret;
+                byte[] data = userCredentials.getBytes("UTF-8");
+ 
+                String basicAuth = "Basic " + Base64.encodeToString(data, Base64.NO_WRAP);
+ 
+                    myConnection.setRequestProperty ("Authorization", basicAuth);
+                    myConnection.setRequestMethod("GET");
+                    myConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                    myConnection.setUseCaches(false);
+                    myConnection.setDoInput(true);
+                    myConnection.setDoOutput(true);
+ 
+ 
+                    Log.e("abc", "abc");
+                if (myConnection.getResponseCode() == 200) {
+ 
+                    InputStream responseBody = myConnection.getInputStream();
+                    InputStreamReader responseBodyReader = new InputStreamReader(responseBody, "UTF-8");
+                    JsonReader jsonReader = new JsonReader(responseBodyReader);
+                    jsonReader.beginObject(); // Start processing the JSON object
+                    String value="Something wrong";
+                    while (jsonReader.hasNext()) { // Loop through all keys
+                         String key = jsonReader.nextName();
+                        if (key.equals("access_token")) {
+                            // Fetch the value as a String
+                            value = jsonReader.nextString();
+ 
+                            // Do something with the value
+                            // ...
+ 
+                            break; // Break out of the loop
+                        } else {
+                            jsonReader.skipValue(); // Skip values of other keys
+                        }
+                    }
+                    Log.e("Key",  value);
+                } else {
+ 
+                }
+ 
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            }
+        });
+ 
+    }
+}
