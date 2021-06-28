@@ -1,3 +1,3 @@
 # AndroidProject
 
-Moja pierwsza aplikacja na androida zawierająca sporo błędów i podróbek
+Moja pierwsza aplikacja na androida zawierająca sporo błędów i niedoróbek
